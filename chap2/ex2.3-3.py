@@ -14,17 +14,19 @@ So for n = 2, T(n) = n * log n
 
 Inductive step:
 
+Now that we've shown the base case to be true, the next step is to show
+that if the case is true for any k, the case will also be true for k + 1
+
+
 if T(n) = n log n, and n is a power of two, then we have:
 
 T(2^k) = (2^k) log (2^k)  = k * (2^k)
 
 To prove the inductive step, we need to prove that if this equation is 
 true, it is also true for the *next* power of two, so we need to prove
-that:
+that
 
 T(2^(k+1)) = (k + 1) (2^(k+1))
-
-Simplifying, we find:
 
 Refering back to the 2nd formula of the problem, we want to show that:
 
@@ -37,13 +39,11 @@ T(2^(k+1)) = 2T((2^(k+1))/2) + (2^(k+1)) = 2T(2^k) + 2(2^k)
 
 We know from above that:
 
-T(2^k) = (2^k) log (2^k) 
+T(2^k) = (2^k) log (2^k) = k * (2^k)
 
 So substituting for T(2^k):
 
-T(2^(k+1)) = 2((2^k) log (2^k) + (2^k)) = 2((2^k) * k + (2^k))
-           = 2(k*(2^(k+1))/2 + (2^(k+1))/2) = k(2^(k+1)) + (2^(k+1))
-           = 2^(k+1) (k + 1)
+T(2^(k+1)) = 2(k*(2^k) + (2^k)) = 2*(2^k) (k + 1) = (k + 1) *  2^(k+1)
 
 We have thus proved the inductive step.
 
